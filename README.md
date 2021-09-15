@@ -1,4 +1,5 @@
 # Password-Generator
+https://luis-ramirez21x.github.io/Password-Generator/
 This password generator is made using Java Script.  
 
 The logic involves using confirm and prompt commands to collect user input. Basic DOM manipulation is used mainly to display the generated password. The framing of the code involves the following: 
