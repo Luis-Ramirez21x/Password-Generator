@@ -17,7 +17,7 @@ function generatePassword(){
   var specialChar = prompt('Inlcude special characters? Enter Y or N.').toLowerCase();
   
   var passwordArr = [];
-  var test;
+  
   
   
  /* function numGen() {
@@ -56,16 +56,63 @@ function generatePassword(){
   
   
   if (lowercase === 'y' && uppercase === 'y' && numeric === 'y' && specialChar === 'y') {
-    charAvailable = listLowercase + listUppercase + listNumbers + listSpecialChar;
+      charAvailable = listLowercase + listUppercase + listNumbers + listSpecialChar;
 
       randomChar();
-      passwordArr[passwordLength-1] = lowcaseGen();
+      passwordArr[passwordLength-2] = lowcaseGen();
       passwordArr[0] = uppercaseGen();
       passwordArr[2] = numericGen();
-      passwordArr[passwordLength-2] = specialGen();
+      passwordArr[passwordLength-3] = specialGen();
       passwordArr = passwordArr.join('');
       console.log(passwordArr);
-      console.log(test);
+      return passwordArr;
+      
+  } else if (lowercase === 'y' && uppercase === 'y' && numeric === 'y' && specialChar === 'n') {
+      charAvailable = listLowercase + listUppercase + listNumbers;
+      randomChar();
+      passwordArr[passwordLength-2] = lowcaseGen();
+      passwordArr[0] = uppercaseGen();
+      passwordArr[2] = numericGen();
+      passwordArr = passwordArr.join('');
+      console.log(passwordArr);
+      return passwordArr;
+    
+  } else if (lowercase === 'y' && uppercase === 'y' && numeric === 'n' && specialChar === 'n') {
+      charAvailable = listLowercase + listUppercase;
+      randomChar();
+      passwordArr[passwordLength-2] = lowcaseGen();
+      passwordArr[0] = uppercaseGen();
+      passwordArr = passwordArr.join('');
+      console.log(passwordArr);
+      return passwordArr;
+  } else if (lowercase === 'y' && uppercase === 'n' && numeric === 'n' && specialChar === 'n') {
+      charAvailable = listLowercase;
+      randomChar();
+      passwordArr[passwordLength-2] = lowcaseGen();
+      passwordArr = passwordArr.join('');
+      console.log(passwordArr);
+      return passwordArr;
+  } else if (lowercase === 'n' && uppercase === 'y' && numeric === 'n' && specialChar === 'n') {
+      charAvailable = listUppercase;
+      randomChar();
+      passwordArr[0] = uppercaseGen();
+      passwordArr = passwordArr.join('');
+      console.log(passwordArr);
+      return passwordArr;
+  } else if (lowercase === 'n' && uppercase === 'n' && numeric === 'y' && specialChar === 'n') {
+      charAvailable = listNumbers;
+      randomChar(); 
+      passwordArr[2] = numericGen();
+      passwordArr = passwordArr.join('');
+      console.log(passwordArr);
+      return passwordArr;
+  } else if (lowercase === 'n' && uppercase === 'n' && numeric === 'n' && specialChar === 'y') {
+      charAvailable = listSpecialChar;
+      randomChar();
+      passwordArr[passwordLength-3] = specialGen();
+      passwordArr = passwordArr.join('');
+      console.log(passwordArr);
+      return passwordArr;
   }
 };
 
